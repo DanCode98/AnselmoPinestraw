@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anselmo Pinestraw & Lawnscaping | Premium Outdoor Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#FFB800',
+                        brandBlue: '#1B52B0',
+                        brandRed: '#E51D24',
+                        brandDark: '#0D0D0D',
+                        brandLight: '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-brandLight text-brandDark dark:bg-brandDark dark:text-brandLight transition-colors duration-300 font-sans overflow-x-hidden">
+
+    <header
+        class="sticky top-0 z-50 bg-brandLight/95 dark:bg-brandDark/95 backdrop-blur shadow-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div
+                    class="h-14 w-14 bg-white rounded-full flex items-center justify-center overflow-hidden border-2 border-brandBlue">
+                    <img src="img/logo.jpeg" alt="Anselmo Logo" class="h-full w-full object-cover">
+                </div>
+                <div>
+                    <span
+                        class="block text-xl font-extrabold tracking-tight text-brandBlue dark:text-brandLight">ANSELMO</span>
+                    <span class="block text-xs font-semibold tracking-widest text-brandYellow uppercase">Pinestraw &
+                        Lawnscaping</span>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+                <button id="theme-toggle"
+                    class="p-2.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition focus:outline-none">
+                    <i id="theme-toggle-dark-icon" class="hidden fa-solid fa-moon text-xl"></i>
+                    <i id="theme-toggle-light-icon" class="hidden fa-solid fa-sun text-xl text-brandYellow"></i>
+                </button>
+
+                <button id="menu-open-btn"
+                    class="p-2.5 rounded-lg text-brandDark dark:text-brandLight hover:bg-gray-100 dark:hover:bg-gray-800 transition focus:outline-none"
+                    aria-label="Open Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="nav-drawer" class="fixed inset-0 z-50 pointer-events-none invisible transition-all duration-300">
+        <div id="drawer-backdrop"
+            class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300 pointer-events-auto"></div>
+
+        <div id="drawer-panel"
+            class="absolute top-0 right-0 h-full w-full max-w-sm bg-white dark:bg-brandDark shadow-2xl p-8 transform translate-x-full transition-transform duration-300 pointer-events-auto flex flex-col justify-between border-l border-gray-100 dark:border-zinc-800">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-gray-100 dark:border-zinc-800 mb-8">
+                    <span
+                        class="font-black text-xl tracking-tight text-brandBlue dark:text-brandYellow">NAVIGATION</span>
+                    <button id="menu-close-btn"
+                        class="p-2 text-gray-500 hover:text-brandRed transition focus:outline-none"
+                        aria-label="Close Menu">
+                        <i class="fa-solid fa-xmark text-2xl"></i>
+                    </button>
+                </div>
+
+                <nav class="flex flex-col space-y-4 text-lg font-bold">
+                    <a href="#services"
+                        class="drawer-link flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-900 text-gray-700 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandYellow transition">
+                        <i class="fa-solid fa-seedling w-6 text-center text-sm"></i> <span>What We Do</span>
+                    </a>
+                    <a href="#why-us"
+                        class="drawer-link flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-900 text-gray-700 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandYellow transition">
+                        <i class="fa-solid fa-star w-6 text-center text-sm"></i> <span>Why Choose Us</span>
+                    </a>
+                    <a href="#transformations"
+                        class="drawer-link flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-900 text-gray-700 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandYellow transition">
+                        <i class="fa-solid fa-images w-6 text-center text-sm"></i> <span>Before/After</span>
+                    </a>
+                    <a href="#gallery"
+                        class="drawer-link flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-900 text-gray-700 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandYellow transition">
+                        <i class="fa-solid fa-grip w-6 text-center text-sm"></i> <span>Project Gallery</span>
+                    </a>
+                    <a href="#process"
+                        class="drawer-link flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-900 text-gray-700 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandYellow transition">
+                        <i class="fa-solid fa-list-check w-6 text-center text-sm"></i> <span>Our Process</span>
+                    </a>
+                    <a href="#areas"
+                        class="drawer-link flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-900 text-gray-700 dark:text-gray-300 hover:text-brandBlue dark:hover:text-brandYellow transition">
+                        <i class="fa-solid fa-map-location-dot w-6 text-center text-sm"></i> <span>Service Areas</span>
+                    </a>
+
+                </nav>
+            </div>
+
+            <div class="mt-auto pt-6 border-t border-gray-100 dark:border-zinc-800 text-center">
+                <a href="tel:8039537163"
+                    class="inline-flex items-center justify-center bg-brandBlue hover:bg-blue-700 text-white font-black py-3 px-6 rounded-xl w-full shadow transition mb-3">
+                    <i class="fa-solid fa-phone mr-2"></i> (803) 953-7163
+                </a>
+                <p class="text-xs text-gray-400">Anselmopinestraw@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="relative bg-gray-900 text-white py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-40 mix-blend-multiply bg-cover bg-center"
+            style="background-image: url('https://images.unsplash.com/photo-1557429287-b2e26467fc2b?auto=format&fit=crop&w=1200');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-brandDark via-transparent to-brandDark/50"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+            <div class="max-w-2xl">
+                <span
+                    class="inline-block bg-brandRed text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+                    We Do It All
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                    Premium Lawn Care & <span class="text-brandYellow">Landscaping</span> Services
+                </h1>
+                <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                    From professional pinestraw installation to complete outdoor makeovers. Get flawless, reliable
+                    residential and commercial maintenance today.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <a href="#services"
+                        class="bg-brandYellow hover:bg-yellow-500 text-brandDark font-black text-center py-3 px-8 rounded-lg shadow-lg transition duration-200">
+                        Explore Our Services
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 dark:bg-zinc-900/50 py-8 border-b border-gray-200 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+                    <i class="fa-solid fa-shield-halved text-3xl text-brandBlue dark:text-brandYellow"></i>
+                    <span class="font-bold text-sm uppercase tracking-wide">Fully Licensed & Insured</span>
+                </div>
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 border-y sm:border-y-0 sm:border-x border-gray-300 dark:border-zinc-700 py-4 sm:py-0">
+                    <i class="fa-solid fa-thumbs-up text-3xl text-brandBlue dark:text-brandYellow"></i>
+                    <span class="font-bold text-sm uppercase tracking-wide">100% Satisfaction Guarantee</span>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+                    <i class="fa-solid fa-hand-holding-dollar text-3xl text-brandBlue dark:text-brandYellow"></i>
+                    <span class="font-bold text-sm uppercase tracking-wide">Accurate upfront Pricing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="py-20 bg-white dark:bg-brandDark transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-xs font-bold text-brandBlue dark:text-brandYellow uppercase tracking-widest mb-2">
+                        Our Advantage</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">Why Homeowners Trust Anselmo</p>
+                    <div class="w-16 h-1 bg-brandRed mb-6"></div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">We combine high-grade industrial equipment,
+                        specialized landscaping expertise, and an unwavering commitment to scheduling reliability to
+                        deliver elite outdoor curb appeal.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div
+                                class="flex-shrink-0 mt-1 p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-brandBlue dark:text-brandYellow">
+                                <i class="fa-solid fa-circle-check text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">Comprehensive Field Mastery</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">From intricate tree pruning tasks to
+                                    precise heavy excavation clearing layouts.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div
+                                class="flex-shrink-0 mt-1 p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-brandBlue dark:text-brandYellow">
+                                <i class="fa-solid fa-star text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">Premium Sourced Materials</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">From nutrient-rich vibrant pinestraw
+                                    choices to heavy-duty protective fencing arrays.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="absolute -top-4 -left-4 w-72 h-72 bg-brandYellow/10 rounded-full blur-2xl pointer-events-none">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=800"
+                        alt="Professional worker"
+                        class="rounded-2xl shadow-xl relative z-10 w-full object-cover h-[450px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-gray-50 dark:bg-zinc-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brandBlue dark:text-brandYellow uppercase tracking-widest mb-2">
+                    Capabilities</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">What We Do</p>
+                <div class="w-16 h-1 bg-brandRed mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Landscaping</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Custom tailored garden features, premium
+                            pinestraw application, and structured landscape layout updates.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1563514223300-b3b0c23a620e?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lawn Care Irrigation</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Routine mowing, clean edges, and specialized
+                            irrigation setups designed to keep properties green all year.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1533460004989-cef01064af7e?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sod Installation & Weed Control</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Instant turf transformations coupled with
+                            highly effective treatments to eradicate persistent invasive weeds.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Outdoor Lighting</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Accentuate structural focal points with
+                            custom architectural low-voltage landscape lighting design layouts.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pressure Washing</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Deep scrubbing power removal of mold,
+                            surface grime, and stains across pathways and driveways.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Tree Work</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Safe, highly precise canopy trimming,
+                            branches removal, and general tree property cleanings.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pavers & Driveways</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Stunning walkway entries, clean functional
+                            patio brick arrays, and custom stone masonry path builds.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Fencing (Chainlink, Privacy, Cattle)</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Professional protection built to last,
+                            including chainlink options, modern privacy configurations, and cattle barriers.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1616963162758-29367efb51e0?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Clearing & Junk Removal</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Complete property cleanups including
+                            overgrown brush management and solid hauling waste removal.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-brandDark rounded-xl overflow-hidden shadow-md border border-gray-100 dark:border-zinc-800 transition transform hover:-translate-y-1 md:col-span-2 lg:col-span-3 lg:max-w-md lg:mx-auto w-full">
+                    <div class="h-48 bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1542013936693-8848e57423e3?auto=format&fit=crop&w=600');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Outdoor Drainage</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">French drains systems integration, erosion
+                            control grading solutions, and surface runoff pathway channel builds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="transformations" class="py-20 bg-white dark:bg-brandDark transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brandBlue dark:text-brandYellow uppercase tracking-widest mb-2">Our
+                    Results</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Before & After Transformations</p>
+                <div class="w-16 h-1 bg-brandRed mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="border border-gray-200 dark:border-zinc-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="grid grid-cols-2 bg-gray-100 dark:bg-zinc-900">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1507036066871-b7e8c34b3ecd?auto=format&fit=crop&w=400"
+                                alt="Overgrown Yard" class="h-64 w-full object-cover">
+                            <span
+                                class="absolute bottom-2 left-2 bg-brandRed text-white text-xs font-bold px-2 py-1 rounded">BEFORE</span>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1558905617-15459d29f515?auto=format&fit=crop&w=400"
+                                alt="Clean Yard" class="h-64 w-full object-cover">
+                            <span
+                                class="absolute bottom-2 left-2 bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded">AFTER</span>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-zinc-900/50">
+                        <h4 class="font-bold text-lg">Full Lawn Cleanup & Sod Overhaul</h4>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 dark:border-zinc-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="grid grid-cols-2 bg-gray-100 dark:bg-zinc-900">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1531088009183-5ff5b7c95f91?auto=format&fit=crop&w=400"
+                                alt="Dirty Patio" class="h-64 w-full object-cover">
+                            <span
+                                class="absolute bottom-2 left-2 bg-brandRed text-white text-xs font-bold px-2 py-1 rounded">BEFORE</span>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400"
+                                alt="Clean Concrete" class="h-64 w-full object-cover">
+                            <span
+                                class="absolute bottom-2 left-2 bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded">AFTER</span>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-zinc-900/50">
+                        <h4 class="font-bold text-lg">Pressure Washing & Surface Restore</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery"
+        class="py-20 bg-gray-50 dark:bg-zinc-900 transition-colors border-t border-gray-200 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold text-brandBlue dark:text-brandYellow uppercase tracking-widest mb-2">
+                    Showcase</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Our Project Gallery</p>
+                <div class="w-16 h-1 bg-brandRed mx-auto mt-4"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button class="filter-btn px-5 py-2 rounded-full text-sm font-bold transition bg-brandBlue text-white"
+                    data-filter="all">All Projects</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-sm font-bold transition bg-white dark:bg-brandDark border border-gray-300 dark:border-zinc-700 hover:border-brandBlue text-gray-700 dark:text-gray-300"
+                    data-filter="landscaping">Landscaping</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-sm font-bold transition bg-white dark:bg-brandDark border border-gray-300 dark:border-zinc-700 hover:border-brandBlue text-gray-700 dark:text-gray-300"
+                    data-filter="fencing">Fencing</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-sm font-bold transition bg-white dark:bg-brandDark border border-gray-300 dark:border-zinc-700 hover:border-brandBlue text-gray-700 dark:text-gray-300"
+                    data-filter="masonry">Masonry</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-sm font-bold transition bg-white dark:bg-brandDark border border-gray-300 dark:border-zinc-700 hover:border-brandBlue text-gray-700 dark:text-gray-300"
+                    data-filter="cleaning">Cleaning</button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                <div class="gallery-item overflow-hidden rounded-xl relative group shadow-md aspect-video"
+                    data-category="landscaping">
+                    <img src="https://images.unsplash.com/photo-1558905617-15459d29f515?auto=format&fit=crop&w=500"
+                        alt="Pinestraw Layout"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-brandDark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span
+                            class="text-xs font-bold text-brandYellow uppercase tracking-wider mb-1">Landscaping</span>
+                        <h4 class="text-lg font-black">Premium Pinestraw Installation</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item overflow-hidden rounded-xl relative group shadow-md aspect-video"
+                    data-category="fencing">
+                    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=500"
+                        alt="Wood Privacy Fence"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-brandDark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-bold text-brandYellow uppercase tracking-wider mb-1">Fencing</span>
+                        <h4 class="text-lg font-black">Cedar Privacy Fence Build</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item overflow-hidden rounded-xl relative group shadow-md aspect-video"
+                    data-category="masonry">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500"
+                        alt="Paver Walkway"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-brandDark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-bold text-brandYellow uppercase tracking-wider mb-1">Masonry</span>
+                        <h4 class="text-lg font-black">Custom Stone Paver Walkway</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item overflow-hidden rounded-xl relative group shadow-md aspect-video"
+                    data-category="cleaning">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=500"
+                        alt="Driveway Washing"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-brandDark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-bold text-brandYellow uppercase tracking-wider mb-1">Cleaning</span>
+                        <h4 class="text-lg font-black">Driveway Deep Pressure Washing</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item overflow-hidden rounded-xl relative group shadow-md aspect-video"
+                    data-category="landscaping">
+                    <img src="https://images.unsplash.com/photo-1533460004989-cef01064af7e?auto=format&fit=crop&w=500"
+                        alt="Sod rolls"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-brandDark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span
+                            class="text-xs font-bold text-brandYellow uppercase tracking-wider mb-1">Landscaping</span>
+                        <h4 class="text-lg font-black">Fresh Sod Roll Installation</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item overflow-hidden rounded-xl relative group shadow-md aspect-video"
+                    data-category="fencing">
+                    <img src="https://images.unsplash.com/photo-1595115161405-b040bf5e2cb8?auto=format&fit=crop&w=500"
+                        alt="Chainlink build"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-brandDark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-bold text-brandYellow uppercase tracking-wider mb-1">Fencing</span>
+                        <h4 class="text-lg font-black">Commercial Chainlink Border</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-20 bg-white dark:bg-brandDark transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brandBlue dark:text-brandYellow uppercase tracking-widest mb-2">
+                    Simplicity</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Our Simple 3-Step Process</p>
+                <div class="w-16 h-1 bg-brandRed mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div
+                    class="text-center p-6 bg-gray-50 dark:bg-zinc-900 rounded-xl shadow-md border border-gray-100 dark:border-zinc-800">
+                    <div
+                        class="w-16 h-16 bg-brandBlue text-white font-black text-2xl flex items-center justify-center rounded-full mx-auto mb-4 border-4 border-brandYellow">
+                        1</div>
+                    <h3 class="text-xl font-bold mb-2">Request Quote</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Call or fill out our structural form layout
+                        parameters below.</p>
+                </div>
+                <div
+                    class="text-center p-6 bg-gray-50 dark:bg-zinc-900 rounded-xl shadow-md border border-gray-100 dark:border-zinc-800">
+                    <div
+                        class="w-16 h-16 bg-brandBlue text-white font-black text-2xl flex items-center justify-center rounded-full mx-auto mb-4 border-4 border-brandYellow">
+                        2</div>
+                    <h3 class="text-xl font-bold mb-2">Schedule Date</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">We lock in a definitive deployment day that
+                        works flawlessly for your timeline.</p>
+                </div>
+                <div
+                    class="text-center p-6 bg-gray-50 dark:bg-zinc-900 rounded-xl shadow-md border border-gray-100 dark:border-zinc-800">
+                    <div
+                        class="w-16 h-16 bg-brandYellow text-brandDark font-black text-2xl flex items-center justify-center rounded-full mx-auto mb-4 border-4 border-brandBlue">
+                        3</div>
+                    <h3 class="text-xl font-bold mb-2">Enjoy Perfection</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Our crew executes the service perfectly, leaving
+                        your grounds pristine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="areas" class="py-20 bg-gray-50 dark:bg-zinc-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="https://mundomapa.com/wp-content/uploads/Mapa-de-Estados-Unidos-con-nombres-Y.jpg"
+                        alt="Neighborhood view" class="rounded-2xl shadow-xl w-full object-cover h-[380px]">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-xs font-bold text-brandBlue dark:text-brandYellow uppercase tracking-widest mb-2">
+                        Coverage</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Areas We Service</p>
+                    <div class="w-16 h-1 bg-brandRed mb-6"></div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">We proudly deploy our professional machinery teams
+                        across multiple local zip codes, neighborhoods, and commercial districts daily.</p>
+
+                    <div class="grid grid-cols-2 gap-4 text-sm font-bold">
+                        <div class="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300">
+                            <i class="fa-solid fa-location-dot text-brandRed"></i> <span>Residential
+                                Neighborhoods</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300">
+                            <i class="fa-solid fa-location-dot text-brandRed"></i> <span>Commercial Complexes</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300">
+                            <i class="fa-solid fa-location-dot text-brandRed"></i> <span>Surrounding Counties</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300">
+                            <i class="fa-solid fa-location-dot text-brandRed"></i> <span>Rural Farm Properties</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-20 bg-gray-50 dark:bg-zinc-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brandBlue dark:text-brandYellow uppercase tracking-widest mb-2">
+                    Reviews</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">What Our Customers Say</p>
+                <div class="w-16 h-1 bg-brandRed mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-brandDark p-6 rounded-xl border border-gray-100 dark:border-zinc-800">
+                    <div class="flex text-brandYellow mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 italic mb-4">"Anselmo did an outstanding job
+                        installing pinestraw around my commercial building. Fast, pristine, and clean execution."</p>
+                    <h5 class="font-bold text-sm text-brandBlue dark:text-brandYellow">- Marcus T.</h5>
+                </div>
+                <div class="bg-white dark:bg-brandDark p-6 rounded-xl border border-gray-100 dark:border-zinc-800">
+                    <div class="flex text-brandYellow mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 italic mb-4">"The pressure washing and junk
+                        removal service rescued my driveway layout completely. Highly recommend their professional
+                        crew."</p>
+                    <h5 class="font-bold text-sm text-brandBlue dark:text-brandYellow">- Sarah L.</h5>
+                </div>
+                <div class="bg-white dark:bg-brandDark p-6 rounded-xl border border-gray-100 dark:border-zinc-800">
+                    <div class="flex text-brandYellow mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 italic mb-4">"Very responsive and clean
+                        installation of our backyard wood privacy fencing. Solid build at an honest price."</p>
+                    <h5 class="font-bold text-sm text-brandBlue dark:text-brandYellow">- David K.</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-white dark:bg-brandDark transition-colors">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold text-brandBlue dark:text-brandYellow uppercase tracking-widest mb-2">
+                    Answers</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Frequently Asked Questions</p>
+                <div class="w-16 h-1 bg-brandRed mx-auto mt-4"></div>
+            </div>
+
+            <div class="space-y-4">
+                <div
+                    class="bg-gray-50 dark:bg-zinc-900 rounded-lg shadow-sm border border-gray-200 dark:border-zinc-800">
+                    <button
+                        class="faq-btn flex justify-between items-center w-full p-5 font-bold text-left text-lg focus:outline-none">
+                        <span>Do you offer free localized estimate evaluations?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-200"></i>
+                    </button>
+                    <div
+                        class="faq-content hidden p-5 pt-0 text-sm text-gray-600 dark:text-gray-400 border-t border-gray-100 dark:border-zinc-800">
+                        Yes, we provide completely free project layout assessments and upfront quotes for all
+                        residential and commercial inquiries.
+                    </div>
+                </div>
+
+                <div
+                    class="bg-gray-50 dark:bg-zinc-900 rounded-lg shadow-sm border border-gray-200 dark:border-zinc-800">
+                    <button
+                        class="faq-btn flex justify-between items-center w-full p-5 font-bold text-left text-lg focus:outline-none">
+                        <span>What variants of fencing builds can you execute?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-200"></i>
+                    </button>
+                    <div
+                        class="faq-content hidden p-5 pt-0 text-sm text-gray-600 dark:text-gray-400 border-t border-gray-100 dark:border-zinc-800">
+                        We specialize structurally in heavy farm cattle setups, long-lasting metallic chainlink layouts,
+                        and dense residential privacy wood installations.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-brandBlue text-white relative px-4 border-b border-blue-700">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-5 text-center lg:text-left">
+                    <h2 class="text-3xl sm:text-4xl font-black mb-4 uppercase tracking-tight">Ready to elevate your
+                        property?</h2>
+                    <p class="text-lg opacity-90 mb-8 max-w-xl mx-auto lg:mx-0">
+                        Contact Anselmo today for high-quality outdoor work. Fast responses and absolute satisfaction
+                        guaranteed.
+                    </p>
+
+                    <div class="space-y-4 max-w-md mx-auto lg:mx-0">
+                        <a href="tel:8039537163"
+                            class="flex items-center justify-center lg:justify-start bg-brandYellow hover:bg-yellow-500 text-brandDark font-black py-4 px-6 rounded-xl transition shadow-lg text-lg w-full">
+                            <i class="fa-solid fa-phone-flip text-xl mr-4"></i> Call (803) 953-7163
+                        </a>
+                        <a href="mailto:Anselmopinestraw@gmail.com"
+                            class="flex items-center justify-center lg:justify-start bg-brandDark hover:bg-black text-white font-bold py-4 px-6 rounded-xl transition shadow-lg border border-zinc-800 text-lg w-full">
+                            <i class="fa-solid fa-envelope text-xl mr-4"></i> Anselmopinestraw@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-7 w-full h-[350px] sm:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 relative">
+                    <iframe class="w-full h-full border-0 absolute inset-0"
+                        src="http://maps.google.com/maps?q=South+Carolina&t=&z=13&ie=UTF-8&iwloc=&output=embed"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brandDark text-gray-400 py-12 border-t border-zinc-900">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="block text-white font-extrabold text-lg">ANSELMO PINESTRAW & LAWNSCAPING</span>
+                <span class="text-xs text-brandYellow font-semibold tracking-wider uppercase">We Do It All</span>
+            </div>
+            <div class="text-sm text-center md:text-right">
+                <p>© 2026 Anselmo Pinestraw & Lawnscaping. All rights reserved.</p>
+                <p class="mt-1 text-xs text-zinc-600">Developed By <a href="https://github.com/DanCode98">DanCode </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Navigation Drawer Panel States Logic ---
+        const navDrawer = document.getElementById('nav-drawer');
+        const drawerPanel = document.getElementById('drawer-panel');
+        const drawerBackdrop = document.getElementById('drawer-backdrop');
+        const menuOpenBtn = document.getElementById('menu-open-btn');
+        const menuCloseBtn = document.getElementById('menu-close-btn');
+        const drawerLinks = document.querySelectorAll('.drawer-link');
+
+        function openDrawer() {
+            navDrawer.classList.remove('invisible');
+            setTimeout(() => {
+                drawerBackdrop.classList.remove('opacity-0');
+                drawerBackdrop.classList.add('opacity-100');
+                drawerPanel.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeDrawer() {
+            drawerBackdrop.classList.remove('opacity-100');
+            drawerBackdrop.classList.add('opacity-0');
+            drawerPanel.classList.add('translate-x-full');
+            setTimeout(() => {
+                navDrawer.classList.add('invisible');
+            }, 300); // Wait for transition animation runtime duration parameters
+        }
+
+        menuOpenBtn.addEventListener('click', openDrawer);
+        menuCloseBtn.addEventListener('click', closeDrawer);
+        drawerBackdrop.addEventListener('click', closeDrawer);
+        drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+
+        // --- Dark/Light Mode Theme Toggle Logic ---
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+
+        // --- Interactive FAQ Accordion Logic ---
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+
+        // --- Interactive Gallery Filtering Logic ---
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-brandBlue', 'text-white');
+                    btn.classList.add('bg-white', 'dark:bg-brandDark', 'text-gray-700', 'dark:text-gray-300');
+                });
+
+                button.classList.add('bg-brandBlue', 'text-white');
+                button.classList.remove('bg-white', 'dark:bg-brandDark', 'text-gray-700', 'dark:text-gray-300');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hidden');
+                        item.classList.add('block');
+                    } else {
+                        item.classList.remove('block');
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

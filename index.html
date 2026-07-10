@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuestas de Diseño</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary-glow: rgba(27, 82, 176, 0.15);
+            --secondary-glow: rgba(255, 184, 0, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --color-blue: #1B52B0;
+            --color-yellow: #FFB800;
+            --color-red: #E51D24;
+            --transition-speed: 0.4s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glowing Background Elements */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: -200px;
+            left: -100px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            bottom: -200px;
+            right: -100px;
+            background: radial-gradient(circle, var(--secondary-glow) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            filter: blur(100px);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 8rem 2rem;
+            width: 100%;
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Branding Header */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo-container {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #1b52b0 0%, #0d0f14 100%);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(27, 82, 176, 0.4);
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .logo-badge::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 1px dashed rgba(27, 82, 176, 0.6);
+            border-radius: 22px;
+            animation: spin 12s linear infinite;
+            transition: all 0.3s ease;
+        }
+
+        .logo-badge:hover {
+            transform: scale(1.08) rotate(5deg);
+            border-color: var(--color-yellow);
+            box-shadow: 0 15px 40px rgba(255, 184, 0, 0.4);
+        }
+
+        .logo-badge:hover::after {
+            border-color: var(--color-yellow);
+            transform: scale(1.05);
+        }
+
+        .logo-badge span {
+            background: linear-gradient(135deg, #ffffff 0%, #FFB800 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .logo-img {
+            max-height: 70px;
+            width: auto;
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .subtitle span {
+            color: var(--color-yellow);
+            font-weight: 600;
+        }
+
+        /* Proposals Grid */
+        .proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Proposal Card Style */
+        .proposal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Highlight border effects on hover */
+        .proposal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: transparent;
+            transition: background var(--transition-speed);
+        }
+
+        .proposal-card.prop-1::before {
+            background: var(--color-blue);
+        }
+
+        .proposal-card.prop-2::before {
+            background: var(--color-yellow);
+        }
+
+        .proposal-card.prop-3::before {
+            background: var(--color-red);
+        }
+
+        .proposal-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 50px rgba(27, 82, 176, 0.1);
+        }
+
+        .proposal-card:hover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.03), transparent 60%);
+            pointer-events: none;
+        }
+
+        .card-header {
+            margin-bottom: 2rem;
+        }
+
+        .card-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .prop-1 .card-badge {
+            color: #5dade2;
+            background: rgba(93, 173, 226, 0.1);
+        }
+
+        .prop-2 .card-badge {
+            color: #f4d03f;
+            background: rgba(244, 208, 63, 0.1);
+        }
+
+        .prop-3 .card-badge {
+            color: #f1948a;
+            background: rgba(241, 148, 138, 0.1);
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features List inside card */
+        .features-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .features-list li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li i {
+            margin-right: 0.6rem;
+            font-size: 0.8rem;
+        }
+
+        .prop-1 .features-list li i {
+            color: var(--color-blue);
+        }
+
+        .prop-2 .features-list li i {
+            color: var(--color-yellow);
+        }
+
+        .prop-3 .features-list li i {
+            color: var(--color-red);
+        }
+
+        /* Button styles */
+        .card-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 1.1rem 1.5rem;
+            border-radius: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        /* Specific Button Gradients */
+        .prop-1 .card-button {
+            background: linear-gradient(135deg, #1B52B0 0%, #0f3d8a 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(27, 82, 176, 0.3);
+        }
+
+        .prop-1 .card-button:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            transform: scale(1.02);
+        }
+
+        .prop-2 .card-button {
+            background: linear-gradient(135deg, #FFB800 0%, #d49a00 100%);
+            color: #0b0c10;
+            box-shadow: 0 4px 15px rgba(255, 184, 0, 0.3);
+        }
+
+        .prop-2 .card-button:hover {
+            background: linear-gradient(135deg, #ffd000 0%, #e0a300 100%);
+            box-shadow: 0 6px 20px rgba(255, 208, 0, 0.4);
+            transform: scale(1.02);
+        }
+
+        .prop-3 .card-button {
+            background: linear-gradient(135deg, #E51D24 0%, #b8141a 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(229, 29, 36, 0.3);
+        }
+
+        .prop-3 .card-button:hover {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+            transform: scale(1.02);
+        }
+
+        .card-button i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .card-button:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Footer styling */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(11, 12, 16, 0.95);
+            border-top: 1px solid var(--card-border);
+            padding: 1.25rem 2rem;
+            text-align: center;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        .footer-dev {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-dev strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .footer-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.5rem 1.2rem;
+            border-radius: 100px;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            margin-top: 0.25rem;
+        }
+
+        .footer-contact:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-contact i {
+            color: var(--color-yellow);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(45px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .proposals-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .container {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <!-- Si tienes un archivo de imagen para tu logo (por ejemplo logo.png), descomenta la línea siguiente y comenta el div logo-badge -->
+                <!-- <img src="logo.png" alt="DanCode Logo" class="logo-img"> -->
+                <div class="logo-badge">
+                    <span>&lt;DC/&gt;</span>
+                </div>
+            </div>
+            <h1>Propuestas de Diseño</h1>
+            <p class="subtitle">Selecciona una de las 3 opciones de diseño desarrolladas.</p>
+        </header>
+
+        <!-- Proposals Grid -->
+        <main class="proposals-grid">
+
+            <!-- Proposal 1 -->
+            <article class="proposal-card prop-1">
+                <div class="card-header">
+                    <span class="card-badge"><i class="fa-solid fa-code"></i> Propuesta 1</span>
+                    <h2 class="card-title">Diseño Dinámico</h2>
+                    <p class="card-description">Una propuesta estructurada con Tailwind CSS, moderna, interactiva y con
+                        soporte nativo de modo oscuro/claro instantáneo.</p>
+                </div>
+                <div>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check"></i> Cabecera con menú dinámico lateral</li>
+                        <li><i class="fa-solid fa-check"></i> Transiciones fluidas integradas</li>
+                        <li><i class="fa-solid fa-check"></i> Formulario de cotización moderno</li>
+                        <li><i class="fa-solid fa-check"></i> Portafolio de proyectos responsivo</li>
+                    </ul>
+                    <a href="propuesta1/index.html" class="card-button">
+                        Ver Propuesta 1 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Proposal 2 -->
+            <article class="proposal-card prop-2">
+                <div class="card-header">
+                    <span class="card-badge"><i class="fa-solid fa-palette"></i> Propuesta 2</span>
+                    <h2 class="card-title">Diseño Industrial</h2>
+                    <p class="card-description">Una estructura con fuentes impactantes (Anton & Work Sans), de alta
+                        densidad informativa y look industrial y profesional.</p>
+                </div>
+                <div>
+                    <ul class="features-list">
+                        <li><i class="fa-solid check fa-check"></i> Tipografía enérgica y visible</li>
+                        <li><i class="fa-solid check fa-check"></i> Gran cantidad de detalles de servicios</li>
+                        <li><i class="fa-solid check fa-check"></i> Paleta de color optimizada</li>
+                        <li><i class="fa-solid check fa-check"></i> Estructura sólida de conversión</li>
+                    </ul>
+                    <a href="propuesta2/index.html" class="card-button">
+                        Ver Propuesta 2 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Proposal 3 -->
+            <article class="proposal-card prop-3">
+                <div class="card-header">
+                    <span class="card-badge"><i class="fa-solid fa-layer-group"></i> Propuesta 3</span>
+                    <h2 class="card-title">Diseño Premium</h2>
+                    <p class="card-description">Estilo minimalista y de lujo, construido con CSS personalizado, fuentes
+                        elegantes (Outfit) y transiciones sutiles de alta gama.</p>
+                </div>
+                <div>
+                    <ul class="features-list">
+                        <li><i class="fa-solid check fa-check"></i> Estilo elegante con fuente Outfit</li>
+                        <li><i class="fa-solid check fa-check"></i> Animaciones de micro-interacción</li>
+                        <li><i class="fa-solid check fa-check"></i> Bloques limpios y ordenados</li>
+                        <li><i class="fa-solid check fa-check"></i> Diseño premium de gran contraste</li>
+                    </ul>
+                    <a href="propuesta3/index.html" class="card-button">
+                        Ver Propuesta 3 <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-dev">2026 developed by <strong>DanCode</strong></p>
+            <a href="mailto:rocastdan@gmail.com" class="footer-contact">
+                <i class="fa-solid fa-envelope"></i> rocastdan@gmail.com
+            </a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
