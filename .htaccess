@@ -1,0 +1,23 @@
+# ====================================================================
+# Redirección y restricción a propuesta3
+# ====================================================================
+
+# Desactivar listado de directorios por seguridad
+Options -Indexes
+
+# Establecer el archivo por defecto
+DirectoryIndex index.html
+
+# Activar motor de reescritura
+RewriteEngine On
+RewriteBase /
+
+# 1. Redirección externa: si el usuario intenta acceder escribiendo "/propuesta3/...",
+# lo redirigimos a "/..." para mantener las URLs limpias y transparentes.
+RewriteCond %{THE_REQUEST} \s/propuesta3/(\S*) [NC]
+RewriteRule ^propuesta3/(.*)$ /$1 [R=301,L]
+
+# 2. Reescritura interna: redirige de forma transparente todas las peticiones
+# para que se sirvan desde el directorio /propuesta3/
+RewriteCond %{REQUEST_URI} !^/propuesta3/
+RewriteRule ^(.*)$ propuesta3/$1 [L]
