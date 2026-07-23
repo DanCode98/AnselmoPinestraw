@@ -1,612 +1,660 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propuestas de Diseño</title>
+    <meta name="description"
+        content="Anselmo Pine Straw & Lawnscaping offers professional landscaping, lawn care, sod installation, irrigation, fencing, pressure washing, and clearing services. Get a free quote today.">
+    <title>Anselmo Pine Straw & Lawnscaping | Premium Yard Services</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --bg-color: #0b0c10;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --primary-glow: rgba(27, 82, 176, 0.15);
-            --secondary-glow: rgba(255, 184, 0, 0.1);
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --color-blue: #1B52B0;
-            --color-yellow: #FFB800;
-            --color-red: #E51D24;
-            --transition-speed: 0.4s;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            height: 100%;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            min-height: 100%;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Glowing Background Elements */
-        body::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            top: -200px;
-            left: -100px;
-            background: radial-gradient(circle, var(--primary-glow) 0%, rgba(0, 0, 0, 0) 70%);
-            z-index: -1;
-            filter: blur(80px);
-            pointer-events: none;
-        }
-
-        body::after {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            bottom: -200px;
-            right: -100px;
-            background: radial-gradient(circle, var(--secondary-glow) 0%, rgba(0, 0, 0, 0) 70%);
-            z-index: -1;
-            filter: blur(100px);
-            pointer-events: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem 8rem 2rem;
-            width: 100%;
-            flex: 1 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Branding Header */
-        header {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .logo-container {
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .logo-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 75px;
-            height: 75px;
-            background: linear-gradient(135deg, #1b52b0 0%, #0d0f14 100%);
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.3rem;
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(27, 82, 176, 0.4);
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-
-        .logo-badge::after {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            right: -6px;
-            bottom: -6px;
-            border: 1px dashed rgba(27, 82, 176, 0.6);
-            border-radius: 22px;
-            animation: spin 12s linear infinite;
-            transition: all 0.3s ease;
-        }
-
-        .logo-badge:hover {
-            transform: scale(1.08) rotate(5deg);
-            border-color: var(--color-yellow);
-            box-shadow: 0 15px 40px rgba(255, 184, 0, 0.4);
-        }
-
-        .logo-badge:hover::after {
-            border-color: var(--color-yellow);
-            transform: scale(1.05);
-        }
-
-        .logo-badge span {
-            background: linear-gradient(135deg, #ffffff 0%, #FFB800 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .logo-img {
-            max-height: 70px;
-            width: auto;
-            display: inline-block;
-        }
-
-        h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .subtitle span {
-            color: var(--color-yellow);
-            font-weight: 600;
-        }
-
-        /* Proposals Grid */
-        .proposals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            width: 100%;
-            margin-bottom: 4rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        /* Proposal Card Style */
-        .proposal-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        /* Highlight border effects on hover */
-        .proposal-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: transparent;
-            transition: background var(--transition-speed);
-        }
-
-        .proposal-card.prop-1::before {
-            background: var(--color-blue);
-        }
-
-        .proposal-card.prop-2::before {
-            background: var(--color-yellow);
-        }
-
-        .proposal-card.prop-3::before {
-            background: var(--color-red);
-        }
-
-        .proposal-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 50px rgba(27, 82, 176, 0.1);
-        }
-
-        .proposal-card:hover::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.03), transparent 60%);
-            pointer-events: none;
-        }
-
-        .card-header {
-            margin-bottom: 2rem;
-        }
-
-        .card-badge {
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            margin-bottom: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .prop-1 .card-badge {
-            color: #5dade2;
-            background: rgba(93, 173, 226, 0.1);
-        }
-
-        .prop-2 .card-badge {
-            color: #f4d03f;
-            background: rgba(244, 208, 63, 0.1);
-        }
-
-        .prop-3 .card-badge {
-            color: #f1948a;
-            background: rgba(241, 148, 138, 0.1);
-        }
-
-        .card-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: #ffffff;
-        }
-
-        .card-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Features List inside card */
-        .features-list {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-
-        .features-list li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .features-list li i {
-            margin-right: 0.6rem;
-            font-size: 0.8rem;
-        }
-
-        .prop-1 .features-list li i {
-            color: var(--color-blue);
-        }
-
-        .prop-2 .features-list li i {
-            color: var(--color-yellow);
-        }
-
-        .prop-3 .features-list li i {
-            color: var(--color-red);
-        }
-
-        /* Button styles */
-        .card-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 1.1rem 1.5rem;
-            border-radius: 14px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            outline: none;
-        }
-
-        /* Specific Button Gradients */
-        .prop-1 .card-button {
-            background: linear-gradient(135deg, #1B52B0 0%, #0f3d8a 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(27, 82, 176, 0.3);
-        }
-
-        .prop-1 .card-button:hover {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-            transform: scale(1.02);
-        }
-
-        .prop-2 .card-button {
-            background: linear-gradient(135deg, #FFB800 0%, #d49a00 100%);
-            color: #0b0c10;
-            box-shadow: 0 4px 15px rgba(255, 184, 0, 0.3);
-        }
-
-        .prop-2 .card-button:hover {
-            background: linear-gradient(135deg, #ffd000 0%, #e0a300 100%);
-            box-shadow: 0 6px 20px rgba(255, 208, 0, 0.4);
-            transform: scale(1.02);
-        }
-
-        .prop-3 .card-button {
-            background: linear-gradient(135deg, #E51D24 0%, #b8141a 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(229, 29, 36, 0.3);
-        }
-
-        .prop-3 .card-button:hover {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
-            transform: scale(1.02);
-        }
-
-        .card-button i {
-            margin-left: 0.5rem;
-            transition: transform 0.3s;
-        }
-
-        .card-button:hover i {
-            transform: translateX(4px);
-        }
-
-        /* Footer styling */
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(11, 12, 16, 0.95);
-            border-top: 1px solid var(--card-border);
-            padding: 1.25rem 2rem;
-            text-align: center;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-
-        .footer-dev {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            letter-spacing: 0.02em;
-        }
-
-        .footer-dev strong {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .footer-contact {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 0.5rem 1.2rem;
-            border-radius: 100px;
-            border: 1px solid var(--card-border);
-            transition: all 0.3s ease;
-            margin-top: 0.25rem;
-        }
-
-        .footer-contact:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .footer-contact i {
-            color: var(--color-yellow);
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(45px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Responsive design adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            .proposals-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .container {
-                padding: 3rem 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="logo-container">
-                <!-- Si tienes un archivo de imagen para tu logo (por ejemplo logo.png), descomenta la línea siguiente y comenta el div logo-badge -->
-                <!-- <img src="logo.png" alt="DanCode Logo" class="logo-img"> -->
-                <div class="logo-badge">
-                    <span>&lt;DC/&gt;</span>
-                </div>
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info-list">
+                <a href="tel:8039537163" class="contact-item"><i class="fa-solid fa-phone phone-icon"></i> (803)
+                    953-7163</a>
+                <a href="mailto:Anselmopinestraw@gmail.com" class="contact-item"><i
+                        class="fa-solid fa-envelope email-icon"></i> Anselmopinestraw@gmail.com</a>
             </div>
-            <h1>Propuestas de Diseño</h1>
-            <p class="subtitle">Selecciona una de las 3 opciones de diseño desarrolladas.</p>
-        </header>
-
-        <!-- Proposals Grid -->
-        <main class="proposals-grid">
-
-            <!-- Proposal 1 -->
-            <article class="proposal-card prop-1">
-                <div class="card-header">
-                    <span class="card-badge"><i class="fa-solid fa-code"></i> Propuesta 1</span>
-                    <h2 class="card-title">Diseño Dinámico</h2>
-                    <p class="card-description">Una propuesta estructurada con Tailwind CSS, moderna, interactiva y con
-                        soporte nativo de modo oscuro/claro instantáneo.</p>
-                </div>
-                <div>
-                    <ul class="features-list">
-                        <li><i class="fa-solid fa-check"></i> Cabecera con menú dinámico lateral</li>
-                        <li><i class="fa-solid fa-check"></i> Transiciones fluidas integradas</li>
-                        <li><i class="fa-solid fa-check"></i> Formulario de cotización moderno</li>
-                        <li><i class="fa-solid fa-check"></i> Portafolio de proyectos responsivo</li>
-                    </ul>
-                    <a href="propuesta1/index.html" class="card-button">
-                        Ver Propuesta 1 <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Proposal 2 -->
-            <article class="proposal-card prop-2">
-                <div class="card-header">
-                    <span class="card-badge"><i class="fa-solid fa-palette"></i> Propuesta 2</span>
-                    <h2 class="card-title">Diseño Industrial</h2>
-                    <p class="card-description">Una estructura con fuentes impactantes (Anton & Work Sans), de alta
-                        densidad informativa y look industrial y profesional.</p>
-                </div>
-                <div>
-                    <ul class="features-list">
-                        <li><i class="fa-solid check fa-check"></i> Tipografía enérgica y visible</li>
-                        <li><i class="fa-solid check fa-check"></i> Gran cantidad de detalles de servicios</li>
-                        <li><i class="fa-solid check fa-check"></i> Paleta de color optimizada</li>
-                        <li><i class="fa-solid check fa-check"></i> Estructura sólida de conversión</li>
-                    </ul>
-                    <a href="propuesta2/index.html" class="card-button">
-                        Ver Propuesta 2 <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Proposal 3 -->
-            <article class="proposal-card prop-3">
-                <div class="card-header">
-                    <span class="card-badge"><i class="fa-solid fa-layer-group"></i> Propuesta 3</span>
-                    <h2 class="card-title">Diseño Premium</h2>
-                    <p class="card-description">Estilo minimalista y de lujo, construido con CSS personalizado, fuentes
-                        elegantes (Outfit) y transiciones sutiles de alta gama.</p>
-                </div>
-                <div>
-                    <ul class="features-list">
-                        <li><i class="fa-solid check fa-check"></i> Estilo elegante con fuente Outfit</li>
-                        <li><i class="fa-solid check fa-check"></i> Animaciones de micro-interacción</li>
-                        <li><i class="fa-solid check fa-check"></i> Bloques limpios y ordenados</li>
-                        <li><i class="fa-solid check fa-check"></i> Diseño premium de gran contraste</li>
-                    </ul>
-                    <a href="propuesta3/index.html" class="card-button">
-                        Ver Propuesta 3 <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-
-        </main>
+            <div class="top-bar-right">
+                <span class="service-area"><i class="fa-solid fa-location-dot location-icon"></i> Serving South Carolina
+                    & Surrounding Areas</span>
+            </div>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p class="footer-dev">2026 developed by <strong>DanCode</strong></p>
-            <a href="mailto:rocastdan@gmail.com" class="footer-contact">
-                <i class="fa-solid fa-envelope"></i> rocastdan@gmail.com
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-img-wrapper">
+                    <img src="img/logo.jpeg" alt="Anselmo Logo" class="logo-img">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-accent">Anselmo</span>
+                    <span class="logo-sub">Pine Straw & Lawnscaping</span>
+                </div>
             </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#why-choose-us" class="nav-link">Why Us</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+
+                <a href="#contact" class="btn btn-primary btn-nav">Get Free Estimate</a>
+
+                <!-- Mobile Menu Button -->
+                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fa-solid fa-award"></i> #1 Rated Local Outdoor Care</span>
+                <h1 class="hero-title">Transform Your Outdoor Space Into a Masterpiece</h1>
+                <p class="hero-subtitle">Premium Pine Straw Installation, Professional Landscaping, and Yard Maintenance
+                    designed to boost your curb appeal.</p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary btn-large"><i class="fa-solid fa-calendar-check"></i>
+                        Request Free Estimate</a>
+                    <a href="tel:8039537163" class="btn btn-outline btn-large"><i class="fa-solid fa-phone-volume"></i>
+                        Call (803) 953-7163</a>
+                </div>
+                <div class="hero-trust-indicators">
+                    <div class="indicator-item">
+                        <i class="fa-solid fa-circle-check"></i> Fully Insured
+                    </div>
+                    <div class="indicator-item">
+                        <i class="fa-solid fa-star"></i> 5-Star Service
+                    </div>
+                    <div class="indicator-item">
+                        <i class="fa-solid fa-clock"></i> 100% Reliable
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <div class="hero-main-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
+                        alt="Premium Lawnscaping Showcase" class="hero-showcase-img">
+                    <div class="hero-satisfaction-card">
+                        <div class="sat-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h4>5.0 Customer Rating</h4>
+                        <p>Based on 150+ reviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tagline">Our Specializations</span>
+                <h2 class="section-title">What We Do</h2>
+                <p class="section-desc">From core lawn care to heavy fencing and land clearing, we provide a complete
+                    suite of residential and commercial outdoor solutions.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1: Landscaping -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/pinestraw.webp" alt="Professional Landscaping & Pine Straw Installation"
+                            class="service-img">
+                        <span class="service-category">Core Service</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Pine Straw & Landscaping</h3>
+                        <p class="service-details">Premium pine straw spreading, mulch beds, garden border design, and
+                            seasonal color installations to make your yard pop.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Lawn Care -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/lawncare.webp" alt="Lawn Care and Maintenance" class="service-img">
+                        <span class="service-category">Maintenance</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Lawn Care</h3>
+                        <p class="service-details">Weekly or bi-weekly mowing, precision edging, line trimming, and
+                            cleanups to keep your turf lush, healthy, and pristine.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Irrigation -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/irrigation.webp" alt="Irrigation System Installation" class="service-img">
+                        <span class="service-category">Water Systems</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Irrigation Systems</h3>
+                        <p class="service-details">Smart sprinkler installation, system repairs, winterization, and
+                            seasonal startup setups to maximize water efficiency.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Sod Installation -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/sod.webp" alt="Sod Installation" class="service-img">
+                        <span class="service-category">Core Service</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Sod Installation</h3>
+                        <p class="service-details">Instant lawns with premium quality Bermuda, Zoysia, or St. Augustine
+                            sod. Complete site grading, prep work, and installation.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Weed Control -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/weedcontrol.webp" alt="Weed Control & Fertilization" class="service-img">
+                        <span class="service-category">Maintenance</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Weed Control</h3>
+                        <p class="service-details">Customized pre-emergent and post-emergent applications, lawn
+                            fertilization plans, and pest management to safeguard your lawn.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Outdoor Lighting -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/outdoor.webp" alt="Outdoor Lighting" class="service-img">
+                        <span class="service-category">Enhancements</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Outdoor Lighting</h3>
+                        <p class="service-details">Low-voltage landscape lighting, path illumination, spotlighting, and
+                            uplighting to bring safety and dramatic beauty to your home at night.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 7: Pressure Washing -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/pressure.webp" alt="Pressure Washing Services" class="service-img">
+                        <span class="service-category">Cleanups</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Pressure Washing</h3>
+                        <p class="service-details">Revitalize driveways, sidewalks, patios, decks, and fences. Removes
+                            dirt, algae, mold, and stains efficiently with professional equipment.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 8: Tree Work -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/tree-work-01.webp" alt="Tree Trimming and Pruning" class="service-img">
+                        <span class="service-category">Specialty</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Tree Work</h3>
+                        <p class="service-details">Professional branch pruning, crown thinning, selective tree removal,
+                            and stump grinding to keep your trees healthy and property safe.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 9: Pavers -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/pavers.webp" alt="Hardscaping Pavers & Patios" class="service-img">
+                        <span class="service-category">Hardscaping</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Pavers & Patios</h3>
+                        <p class="service-details">Custom design and laying of interlocking stone pavers, brick
+                            pathways, fire pits, and beautiful outdoor seating areas.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 10: Driveways -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/Driveway.webp" alt="Driveway Construction" class="service-img">
+                        <span class="service-category">Hardscaping</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Driveways</h3>
+                        <p class="service-details">Installation, extension, and maintenance of driveways using pavers,
+                            gravel, concrete borders, and beautiful landscaping trims.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 11: Fencing -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/fencing.webp" alt="Fencing Installation" class="service-img">
+                        <span class="service-category">Property Borders</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Fencing (Chain, Privacy, Cattle)</h3>
+                        <p class="service-details">Secure and outline your property with our custom fence installations,
+                            including Chain-Link, Wooden Privacy Fencing, and Cattle Fences.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 12: Land Clearing -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/landclearing.webp" alt="Land Clearing & Excavating" class="service-img">
+                        <span class="service-category">Specialty</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Land Clearing</h3>
+                        <p class="service-details">Brush hogging, underbrush removal, debris clearing, grading, and site
+                            preparation for new lawns, buildings, or extensions.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 13: Junk Removal -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/junk.webp" alt="Junk and Yard Waste Removal" class="service-img">
+                        <span class="service-category">Cleanups</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Junk Removal</h3>
+                        <p class="service-details">Fast clearing of outdoor clutter, construction debris, storm tree
+                            damage, old lawn equipment, and green waste.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 14: Outdoor Drainage -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="img/outdoordre.webp" alt="Outdoor Drainage Systems" class="service-img">
+                        <span class="service-category">Water Systems</span>
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-title">Outdoor Drainage</h3>
+                        <p class="service-details">French drain installation, grading adjustments, downspout extensions,
+                            and runoff solutions to prevent lawn ponding and erosion.</p>
+                        <a href="#contact" class="service-link">Get details <i
+                                class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container about-container">
+            <div class="about-img-box">
+                <div class="experience-badge">
+                    <span class="exp-num">10+</span>
+                    <span class="exp-text">Years of Excellence</span>
+                </div>
+                <img src="img/dream.webp" alt="Landscaping service showcase" class="about-image">
+            </div>
+
+            <div class="about-text-content">
+                <span class="section-tagline">About Our Company</span>
+                <h2 class="section-title">Bringing Your Dream Lawn to Life</h2>
+                <p>At Anselmo Pine Straw & Lawnscaping, we believe that your yard is an extension of your home. For over
+                    a decade, we have provided top-tier outdoor services to residential and commercial properties
+                    throughout South Carolina.</p>
+                <p>We pride ourselves on attention to detail, reliability, and fair pricing. Whether it's laying down
+                    premium pine straw, setting up secure fencing, installing sod, or handling heavy land clearing, our
+                    crew is equipped with the skills and machinery to get the job done right the first time.</p>
+
+                <div class="about-bullets">
+                    <div class="bullet-item">
+                        <div class="bullet-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h4>Licensed & Fully Insured</h4>
+                            <p>Full liability insurance gives you absolute peace of mind.</p>
+                        </div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-icon-box"><i class="fa-solid fa-user-check"></i></div>
+                        <div>
+                            <h4>Experienced Professionals</h4>
+                            <p>Trained crew specialists for every task, from gardening to clearing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="why-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Why Anselmo?</span>
+                <h2 class="section-title">Why Property Owners Choose Us</h2>
+                <p class="section-desc">We deliver premium work backed by outstanding customer service, competitive
+                    pricing, and local expertise.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-tags"></i></div>
+                    <h3>Fair & Honest Pricing</h3>
+                    <p>No hidden costs, no surprise fees. We offer upfront, transparent pricing on all estimates and
+                        service contracts.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                    <h3>Punctual & Reliable</h3>
+                    <p>We show up when we say we will. Your time is valuable, and our crews respect your scheduled
+                        appointments.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <h3>Premium Materials</h3>
+                    <p>From fresh, clean-baled Pine Straw to industrial-strength fencing and sod, we use top-grade
+                        materials for lasting beauty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery Showcase -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Our Work Portfolio</span>
+                <h2 class="section-title">Recent Yard Transformations</h2>
+                <p class="section-desc">Take a look at a few of our completed landscaping, sod installation, and
+                    clearing jobs across our service region.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="img/landscaping.webp" alt="Pine Straw and Mulching Job">
+                    <div class="gallery-overlay">
+                        <h4>Pine Straw Bed Installation</h4>
+                        <span>Landscaping</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/sod2.webp" alt="Sod Installation Job">
+                    <div class="gallery-overlay">
+                        <h4>Premium Bermuda Sod Laying</h4>
+                        <span>Sod Installation</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/hardscaping.webp" alt="Paver Patio Job">
+                    <div class="gallery-overlay">
+                        <h4>Interlocking Patio Pavers</h4>
+                        <span>Hardscaping</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/woodfencing.webp" alt="Fencing Installation Job">
+                    <div class="gallery-overlay">
+                        <h4>Wood Privacy Fencing</h4>
+                        <span>Fencing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">Client Success</span>
+                <h2 class="section-title">Reviews From Happy Neighbors</h2>
+                <p class="section-desc">Don't just take our word for it—here is what home and business owners say about
+                    Anselmo Pine Straw & Lawnscaping.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Anselmo's crew did an incredible job laying down fresh pine straw and
+                        installing wood fencing on our yard. The response time was quick, pricing was fair, and the crew
+                        was extremely professional. Highly recommended!"</p>
+                    <div class="testimonial-user">
+                        <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <h4 class="user-name">Sarah Jenkins</h4>
+                            <span class="user-role">Homeowner, Sumter SC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"We contracted them for pressure washing our long driveway and land
+                        clearing near our back barn. The machinery they used was top notch and the results surpassed
+                        what we expected. Will use them for our landscaping maintenance!"</p>
+                    <div class="testimonial-user">
+                        <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <h4 class="user-name">David Miller</h4>
+                            <span class="user-role">Business Owner, Manning SC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Our irrigation system had multiple leaks and our sod was dying.
+                        Anselmo's team quickly diagnosed the issue, repaired the irrigation pipes, and replaced the sod.
+                        Outstanding service and very helpful staff!"</p>
+                    <div class="testimonial-user">
+                        <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <h4 class="user-name">Robert H.</h4>
+                            <span class="user-role">Homeowner, Calhour SC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-text-box">
+                <span class="section-tagline">Get In Touch</span>
+                <h2 class="section-title">Schedule A Free Consultation</h2>
+                <p>Have an outdoor project in mind? We'd love to help you bring it to life. Contact us using the details
+                    below or fill out our free quote request form. We respond to all inquiries within 24 hours.</p>
+
+                <div class="contact-methods">
+                    <div class="method-item">
+                        <div class="method-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <span>Call or Text Us</span>
+                            <a href="tel:8039537163" class="method-val">(803) 953-7163</a>
+                        </div>
+                    </div>
+
+                    <div class="method-item">
+                        <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <span>Email Us Directly</span>
+                            <a href="mailto:Anselmopinestraw@gmail.com"
+                                class="method-val">Anselmopinestraw@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="method-item">
+                        <div class="method-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                        <div>
+                            <span>Business Hours</span>
+                            <span class="method-val">Mon - Sat: 7:00 AM - 7:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-map-box">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26558.002303799498!2d-80.23714306745848!3d33.689529549197275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88ff0c3b84335681%3A0x83c126247c2246c5!2sManning%2C%20Carolina%20del%20Sur%2029102%2C%20EE.%20UU.!5e0!3m2!1ses!2smx!4v1784253366516!5m2!1ses!2smx"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-img-wrapper">
+                        <img src="img/logo.jpeg" alt="Anselmo Logo" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-accent">Anselmo</span>
+                        <span class="logo-sub">Pine Straw & Lawnscaping</span>
+                    </div>
+                </a>
+                <p class="footer-desc">Professional lawn landscaping, fencing, hardscaping, pressure washing, and
+                    clearing services across South Carolina. Insured, dependable, and locally owned.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#why-choose-us">Why Choose Us</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-services">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#services">Pine Straw & Landscaping</a></li>
+                    <li><a href="#services">Lawn Care & Mowing</a></li>
+                    <li><a href="#services">Fencing Installation</a></li>
+                    <li><a href="#services">Irrigation & Sod</a></li>
+                    <li><a href="#services">Pressure Washing</a></li>
+                    <li><a href="#services">Land Clearing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Details</h4>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:8039537163">(803) 953-7163</a></p>
+                <p><i class="fa-solid fa-envelope"></i> <a
+                        href="mailto:Anselmopinestraw@gmail.com">Anselmopinestraw@gmail.com</a></p>
+                <p><i class="fa-solid fa-clock"></i> Mon - Sat: 7:00 AM - 7:00 PM</p>
+                <p><i class="fa-solid fa-location-dot"></i> Manning, South Carolina</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-content">
+                <p>&copy; 2026 Anselmo Pine Straw & Lawnscaping. All rights reserved.</p>
+                <p>Designed By <a href="https://github.com/DanCode98">DanCode</a></p>
+            </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
