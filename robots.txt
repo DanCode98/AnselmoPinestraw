@@ -1,0 +1,6 @@
+# Robots.txt for Anselmo Pine Straw & Lawnscaping
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://anselmopinestraw.dpdns.org/sitemap.xml

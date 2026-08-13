@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://anselmopinestraw.dpdns.org/</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://anselmopinestraw.dpdns.org/img/logo.jpeg</image:loc>
+      <image:title>Anselmo Pine Straw &amp; Lawnscaping Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anselmopinestraw.dpdns.org/img/pinestraw.webp</image:loc>
+      <image:title>Pine Straw &amp; Landscaping Installation in South Carolina</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anselmopinestraw.dpdns.org/img/lawncare.webp</image:loc>
+      <image:title>Professional Lawn Care and Maintenance Manning SC</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anselmopinestraw.dpdns.org/img/sod.webp</image:loc>
+      <image:title>Premium Sod Installation in South Carolina</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anselmopinestraw.dpdns.org/img/fencing.webp</image:loc>
+      <image:title>Fencing Installation Privacy Chain Link SC</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anselmopinestraw.dpdns.org/img/landclearing.webp</image:loc>
+      <image:title>Land Clearing &amp; Excavating Services Manning Columbia SC</image:title>
+    </image:image>
+  </url>
+</urlset>
